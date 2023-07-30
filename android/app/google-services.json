@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "12163141501",
+    "project_id": "flutterflow-coffee-shop",
+    "storage_bucket": "flutterflow-coffee-shop.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:12163141501:android:54ca75f6d591a6d4ddc614",
+        "android_client_info": {
+          "package_name": "com.flutterflow.coffeeshop"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "12163141501-g30ktk3ajtkom83g4i7i9c457uj0mfkk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4RhI1lN9KiN8wDX9fJ0aygCYxH1jNmPY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "12163141501-g30ktk3ajtkom83g4i7i9c457uj0mfkk.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "12163141501-53ru1ukl3he85ee7i52j3u73724c6its.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.flutterflow.coffeeshop"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
