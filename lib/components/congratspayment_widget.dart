@@ -38,7 +38,7 @@ class _CongratspaymentWidgetState extends State<CongratspaymentWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
+    context.watch<AppState>();
 
     return Padding(
       padding: EdgeInsetsDirectional.fromSTEB(15.0, 15.0, 15.0, 15.0),

@@ -119,7 +119,7 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
+    context.watch<AppState>();
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
@@ -595,12 +595,12 @@ class _HomeWidgetState extends State<HomeWidget> with TickerProviderStateMixin {
                                                 size: 10.0,
                                               ),
                                               onPressed: () async {
-                                                FFAppState().update(() {
-                                                  FFAppState().addToCart(
+                                                AppState().update(() {
+                                                  AppState().addToCart(
                                                       productListProductRecord
                                                           .reference);
-                                                  FFAppState()
-                                                      .cartsum = FFAppState()
+                                                  AppState()
+                                                      .cartsum = AppState()
                                                           .cartsum +
                                                       productListProductRecord
                                                           .price;

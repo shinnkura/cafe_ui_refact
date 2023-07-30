@@ -77,7 +77,7 @@ class _CartWidgetState extends State<CartWidget> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
+    context.watch<AppState>();
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
@@ -101,7 +101,7 @@ class _CartWidgetState extends State<CartWidget> with TickerProviderStateMixin {
                       children: [
                         Expanded(
                           child: Text(
-                            'Total :  \$ ${FFAppState().cartsum.toString()}',
+                            'Total :  \$ ${AppState().cartsum.toString()}',
                             style: FlutterFlowTheme.of(context)
                                 .bodyMedium
                                 .override(
@@ -120,7 +120,7 @@ class _CartWidgetState extends State<CartWidget> with TickerProviderStateMixin {
                         EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Builder(
                       builder: (context) {
-                        final cart = FFAppState().cart.toList();
+                        final cart = AppState().cart.toList();
                         if (cart.isEmpty) {
                           return EmptyProductsWidget();
                         }
@@ -276,13 +276,13 @@ class _CartWidgetState extends State<CartWidget> with TickerProviderStateMixin {
                                                     highlightColor:
                                                         Colors.transparent,
                                                     onTap: () async {
-                                                      FFAppState().update(() {
-                                                        FFAppState()
+                                                      AppState().update(() {
+                                                        AppState()
                                                             .removeFromCart(
                                                                 cardProductRecord
                                                                     .reference);
-                                                        FFAppState()
-                                                            .cartsum = FFAppState()
+                                                        AppState()
+                                                            .cartsum = AppState()
                                                                 .cartsum +
                                                             functions
                                                                 .returncartprice(
@@ -316,7 +316,7 @@ class _CartWidgetState extends State<CartWidget> with TickerProviderStateMixin {
                       },
                     ),
                   ),
-                  if (FFAppState().cart.length != 0)
+                  if (AppState().cart.length != 0)
                     Padding(
                       padding:
                           EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
@@ -355,12 +355,12 @@ class _CartWidgetState extends State<CartWidget> with TickerProviderStateMixin {
                                   },
                                 ).then((value) => setState(() {}));
 
-                                FFAppState().update(() {
-                                  FFAppState().deleteCart();
-                                  FFAppState().cart = [];
+                                AppState().update(() {
+                                  AppState().deleteCart();
+                                  AppState().cart = [];
                                 });
-                                FFAppState().update(() {
-                                  FFAppState().cartsum = 0.0;
+                                AppState().update(() {
+                                  AppState().cartsum = 0.0;
                                 });
                               },
                               child: Row(

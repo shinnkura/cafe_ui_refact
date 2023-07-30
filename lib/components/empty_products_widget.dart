@@ -56,7 +56,7 @@ class _EmptyProductsWidgetState extends State<EmptyProductsWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
+    context.watch<AppState>();
 
     return Column(
       mainAxisSize: MainAxisSize.max,

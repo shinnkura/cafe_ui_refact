@@ -64,7 +64,7 @@ class _FavoriteWidgetState extends State<FavoriteWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
+    context.watch<AppState>();
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
@@ -107,7 +107,7 @@ class _FavoriteWidgetState extends State<FavoriteWidget>
                         EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
                     child: Builder(
                       builder: (context) {
-                        final favorite = FFAppState().favorite.toList();
+                        final favorite = AppState().favorite.toList();
                         if (favorite.isEmpty) {
                           return EmptyProductsWidget();
                         }
@@ -265,8 +265,8 @@ class _FavoriteWidgetState extends State<FavoriteWidget>
                                                     highlightColor:
                                                         Colors.transparent,
                                                     onTap: () async {
-                                                      FFAppState().update(() {
-                                                        FFAppState()
+                                                      AppState().update(() {
+                                                        AppState()
                                                             .removeFromFavorite(
                                                                 cardProductRecord
                                                                     .reference);
