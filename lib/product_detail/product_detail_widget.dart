@@ -94,7 +94,7 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
 
   @override
   Widget build(BuildContext context) {
-    context.watch<AppState>();
+    context.watch<FFAppState>();
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),
@@ -234,8 +234,8 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                 hoverColor: Colors.transparent,
                                 highlightColor: Colors.transparent,
                                 onTap: () async {
-                                  AppState().update(() {
-                                    AppState()
+                                  FFAppState().update(() {
+                                    FFAppState()
                                         .addToFavorite(widget.productRef!);
                                   });
                                   ScaffoldMessenger.of(context).showSnackBar(
@@ -262,15 +262,15 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                   child: ToggleIcon(
                                     onPressed: () async {
                                       setState(
-                                        () => AppState().favorite.contains(
+                                        () => FFAppState().favorite.contains(
                                                 stackProductRecord.reference)
-                                            ? AppState().removeFromFavorite(
+                                            ? FFAppState().removeFromFavorite(
                                                 stackProductRecord.reference)
-                                            : AppState().addToFavorite(
+                                            : FFAppState().addToFavorite(
                                                 stackProductRecord.reference),
                                       );
                                     },
-                                    value: AppState()
+                                    value: FFAppState()
                                         .favorite
                                         .contains(stackProductRecord.reference),
                                     onIcon: Icon(
@@ -590,11 +590,11 @@ class _ProductDetailWidgetState extends State<ProductDetailWidget>
                                           hoverColor: Colors.transparent,
                                           highlightColor: Colors.transparent,
                                           onTap: () async {
-                                            AppState().update(() {
-                                              AppState().addToCart(
+                                            FFAppState().update(() {
+                                              FFAppState().addToCart(
                                                   stackProductRecord.reference);
-                                              AppState().cartsum =
-                                                  AppState().cartsum +
+                                              FFAppState().cartsum =
+                                                  FFAppState().cartsum +
                                                       stackProductRecord.price;
                                             });
                                             ScaffoldMessenger.of(context)

@@ -17,7 +17,7 @@ void main() async {
   usePathUrlStrategy();
   await initFirebase();
 
-  final appState = AppState(); // Initialize AppState
+  final appState = FFAppState(); // Initialize FFAppState
   await appState.initializePersistedState();
 
   runApp(

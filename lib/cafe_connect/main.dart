@@ -18,8 +18,8 @@ void main() async {
 
   runApp(
     DevicePreview(
-      enabled: !kReleaseMode, // Ensure that it is disabled in release mode
-      builder: (context) => MyApp(), // Wrap your app
+      enabled: !kReleaseMode,
+      builder: (context) => MyApp(),
     ),
   );
 }
@@ -30,8 +30,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: DevicePreview.locale(context), // Add the locale here
-      builder: DevicePreview.appBuilder, // Add the builder here
+      locale: DevicePreview.locale(context),
+      builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       title: 'Coffee Order',
       theme: _buildThemeData(context),

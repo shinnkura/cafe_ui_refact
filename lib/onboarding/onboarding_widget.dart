@@ -35,7 +35,7 @@ class _OnboardingWidgetState extends State<OnboardingWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<AppState>();
+    context.watch<FFAppState>();
 
     return GestureDetector(
       onTap: () => FocusScope.of(context).requestFocus(_model.unfocusNode),

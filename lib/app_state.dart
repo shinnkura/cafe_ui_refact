@@ -5,14 +5,14 @@ import 'package:csv/csv.dart';
 import 'package:synchronized/synchronized.dart';
 import 'flutter_flow/flutter_flow_util.dart';
 
-class AppState extends ChangeNotifier {
-  static final AppState _instance = AppState._internal();
+class FFAppState extends ChangeNotifier {
+  static final FFAppState _instance = FFAppState._internal();
 
-  factory AppState() {
+  factory FFAppState() {
     return _instance;
   }
 
-  AppState._internal();
+  FFAppState._internal();
 
   Future initializePersistedState() async {
     secureStorage = FlutterSecureStorage();
