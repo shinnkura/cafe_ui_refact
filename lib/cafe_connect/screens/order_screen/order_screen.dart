@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../constants.dart';
 import '../thanks_pages/thanks_page.dart';
-import 'components/custom_app_bar.dart';
 import 'components/custom_dropdown_button.dart';
 import 'components/custom_elevated_button.dart';
 
@@ -57,8 +56,68 @@ class _OrderPageState extends State<OrderPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: widget.title),
-      body: _buildBody(),
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        leading: Padding(
+          padding: EdgeInsets.only(left: 16.0),
+          child: InkWell(
+            borderRadius: BorderRadius.circular(30),
+            child: Container(
+              padding: EdgeInsets.all(2.0),
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+              ),
+              child: IconButton(
+                icon: Icon(Icons.arrow_back, color: Colors.brown),
+                iconSize: 16.0,
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+            ),
+          ),
+        ),
+      ),
+      body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            Image.network(
+              'https://images.unsplash.com/photo-1509042239860-f550ce710b93?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
+              width: double.infinity,
+              height: 500.0,
+              fit: BoxFit.cover,
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 300.0),
+              child: Container(
+                width: double.infinity,
+                height: 700.0,
+                decoration: BoxDecoration(
+                  color: Color(0xFFF8F7FA),
+                  boxShadow: [
+                    BoxShadow(
+                      blurRadius: 4.0,
+                      color: Color(0x320E151B),
+                      offset: Offset(0.0, -2.0),
+                    )
+                  ],
+                  borderRadius: BorderRadius.only(
+                    bottomLeft: Radius.circular(0.0),
+                    bottomRight: Radius.circular(0.0),
+                    topLeft: Radius.circular(40.0),
+                    topRight: Radius.circular(40.0),
+                  ),
+                ),
+                child: Padding(
+                  padding: EdgeInsets.all(20.0),
+                  child: _buildBody(),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 
