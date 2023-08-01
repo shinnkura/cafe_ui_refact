@@ -1,10 +1,10 @@
-import 'dart:html';
+// import 'dart:html';
 
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../constants.dart';
 import '../thanks_pages/thanks_page.dart';
-import 'components/custom_dropdown_button.dart';
+// import 'components/custom_dropdown_button.dart';
 import 'components/custom_elevated_button.dart';
 
 class OrderPage extends StatefulWidget {
@@ -168,6 +168,7 @@ class _OrderPageState extends State<OrderPage> {
                   },
                 ),
               ),
+              const SizedBox(height: 20.0),
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Column(
@@ -212,8 +213,8 @@ class _OrderPageState extends State<OrderPage> {
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 padding: EdgeInsets.symmetric(
-                                  horizontal: 20,
-                                  vertical: 10,
+                                  horizontal: 30, // Increase horizontal padding
+                                  vertical: 15, // Increase vertical padding
                                 ),
                               ),
                             ),
@@ -246,16 +247,19 @@ class _OrderPageState extends State<OrderPage> {
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 padding: EdgeInsets.symmetric(
-                                    horizontal: 20, vertical: 10),
+                                    horizontal:
+                                        30, // Increase horizontal padding
+                                    vertical: 15), // Increase vertical padding
                               ),
                             ),
                           ),
                         ),
                       ],
-                    ),
+                    )
                   ],
                 ),
               ),
+              const SizedBox(height: 20.0),
               Text(
                 'Categories',
                 style: TextStyle(
@@ -378,6 +382,7 @@ class _OrderPageState extends State<OrderPage> {
                   ),
                 ),
               ),
+              const SizedBox(height: 20.0),
               Text(
                 'Topping',
                 style: TextStyle(
