@@ -1,8 +1,10 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import '../../constants.dart';
 import '../thanks_pages/thanks_page.dart';
-// import 'components/custom_dropdown_button.dart';
+import 'components/custom_dropdown_button.dart';
 import 'components/custom_elevated_button.dart';
 
 class OrderPage extends StatefulWidget {
@@ -89,7 +91,7 @@ class _OrderPageState extends State<OrderPage> {
           ),
           SingleChildScrollView(
             child: Container(
-              margin: EdgeInsets.only(top: 400.0), // ここを調整してください。
+              margin: EdgeInsets.only(top: 400.0),
               width: double.infinity,
               decoration: BoxDecoration(
                 color: Color(0xFFF8F7FA),
@@ -188,11 +190,14 @@ class _OrderPageState extends State<OrderPage> {
                                 timeDropdownValue == '15時30分' ? 10.0 : 0.0,
                             borderRadius: BorderRadius.circular(20),
                             child: ElevatedButton(
-                              child: Text('15時30分',
-                                  style: TextStyle(
-                                      color: timeDropdownValue == '15時30分'
-                                          ? Colors.white
-                                          : Colors.black)),
+                              child: Text(
+                                '15時30分',
+                                style: TextStyle(
+                                    fontSize: 17.0,
+                                    color: timeDropdownValue == '15時30分'
+                                        ? Colors.white
+                                        : Colors.black),
+                              ),
                               onPressed: () {
                                 setState(() {
                                   timeDropdownValue = '15時30分';
@@ -205,6 +210,10 @@ class _OrderPageState extends State<OrderPage> {
                                     : Colors.white,
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
+                                ),
+                                padding: EdgeInsets.symmetric(
+                                  horizontal: 20,
+                                  vertical: 10,
                                 ),
                               ),
                             ),
@@ -219,6 +228,7 @@ class _OrderPageState extends State<OrderPage> {
                             child: ElevatedButton(
                               child: Text('17時30分',
                                   style: TextStyle(
+                                      fontSize: 17.0,
                                       color: timeDropdownValue == '17時30分'
                                           ? Colors.white
                                           : Colors.black)),
@@ -235,6 +245,8 @@ class _OrderPageState extends State<OrderPage> {
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20),
                                 ),
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 10),
                               ),
                             ),
                           ),
@@ -252,105 +264,117 @@ class _OrderPageState extends State<OrderPage> {
                 ),
               ),
               Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 child: SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      for (var item in [
-                        {
-                          'name': 'コーヒー',
-                          'url':
-                              'https://images.unsplash.com/photo-1634913564795-7825a3266590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-                        },
-                        {
-                          'name': 'カフェオレ',
-                          'url':
-                              'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80'
-                        },
-                        {
-                          'name': 'ちょいふわカフェオレ',
-                          'url':
-                              'https://images.unsplash.com/photo-1666600638856-dc0fb01c01bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-                        },
-                        {
-                          'name': 'ふわふわカフェオレ',
-                          'url':
-                              'https://images.unsplash.com/photo-1585494156145-1c60a4fe952b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80'
-                        },
-                        {
-                          'name': 'アイスコーヒー（水出し）',
-                          'url':
-                              'https://images.unsplash.com/photo-1499961024600-ad094db305cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-                        },
-                        {
-                          'name': 'アイスコーヒー(急冷式)',
-                          'url':
-                              'https://images.unsplash.com/photo-1517959105821-eaf2591984ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1746&q=80'
-                        },
-                        {
-                          'name': 'アイスカフェオレ',
-                          'url':
-                              'https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80'
-                        },
-                        {
-                          'name': 'アイスカフェオレ（ミルク多め）',
-                          'url':
-                              'https://images.unsplash.com/photo-1553909489-ec2175ef3f52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80'
-                        },
-                        {
-                          'name': 'ソイラテ',
-                          'url':
-                              'https://images.unsplash.com/photo-1608651057580-4a50b2fc2281?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80'
-                        },
-                        {
-                          'name': 'アイスソイラテ',
-                          'url':
-                              'https://images.unsplash.com/photo-1471691118458-a88597b4c1f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80'
-                        },
-                      ])
-                        Padding(
-                          padding: EdgeInsets.only(right: 16.0),
-                          child: Container(
-                            width: 120,
-                            height: 170,
-                            padding: EdgeInsets.all(8.0),
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: 100,
-                                  height: 100,
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(10),
-                                    child: Image.network(
-                                      item['url']!,
-                                      fit: BoxFit.cover,
-                                    ),
-                                  ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: const EdgeInsets.only(
-                                      top: 8.0,
-                                      bottom: 4.0,
-                                    ),
-                                    child: SingleChildScrollView(
-                                      child: Text(
-                                        item['name']!,
-                                        style: TextStyle(fontSize: 12),
+                    children: <Map<String, String>>[
+                      {
+                        "name": "コーヒー",
+                        "image":
+                            "https://images.unsplash.com/photo-1634913564795-7825a3266590?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                      },
+                      {
+                        "name": "カフェオレ",
+                        "image":
+                            "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80"
+                      },
+                      {
+                        "name": "ちょいふわ\nカフェオレ",
+                        "image":
+                            "https://images.unsplash.com/photo-1666600638856-dc0fb01c01bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                      },
+                      {
+                        "name": "ふわふわ\nカフェオレ",
+                        "image":
+                            "https://images.unsplash.com/photo-1585494156145-1c60a4fe952b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+                      },
+                      {
+                        "name": "アイスコーヒー\n（水出し）",
+                        "image":
+                            "https://images.unsplash.com/photo-1499961024600-ad094db305cc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                      },
+                      {
+                        "name": "アイスコーヒー\n(急冷式)",
+                        "image":
+                            "https://images.unsplash.com/photo-1517959105821-eaf2591984ca?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1746&q=80"
+                      },
+                      {
+                        "name": "アイス\nカフェオレ",
+                        "image":
+                            "https://images.unsplash.com/photo-1461023058943-07fcbe16d735?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1738&q=80"
+                      },
+                      {
+                        "name": "アイス\nカフェオレ\n（ミルク多め）",
+                        "image":
+                            "https://images.unsplash.com/photo-1553909489-ec2175ef3f52?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=930&q=80"
+                      },
+                      {
+                        "name": "ソイラテ",
+                        "image":
+                            "https://images.unsplash.com/photo-1608651057580-4a50b2fc2281?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=774&q=80"
+                      },
+                      {
+                        "name": "アイスソイラテ",
+                        "image":
+                            "https://images.unsplash.com/photo-1471691118458-a88597b4c1f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
+                      }
+                    ].map((Map<String, String> item) {
+                      return Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Material(
+                          color: item['name'] == dropdownValue
+                              ? Colors.brown
+                              : null,
+                          elevation: item['name'] == dropdownValue ? 10.0 : 0.0,
+                          borderRadius: BorderRadius.circular(20),
+                          child: InkWell(
+                            onTap: () {
+                              setState(() {
+                                dropdownValue = item['name']!;
+                              });
+                            },
+                            child: Card(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(20),
+                              ),
+                              color: item['name'] == dropdownValue
+                                  ? Colors.brown
+                                  : null,
+                              child: Container(
+                                height: 180,
+                                width: 150,
+                                child: Column(
+                                  children: <Widget>[
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(20.0),
+                                      child: Image.network(
+                                        item['image']!,
+                                        height: 100,
+                                        width: 140,
+                                        fit: BoxFit.cover,
                                       ),
                                     ),
-                                  ),
+                                    ListTile(
+                                      title: Text(
+                                        item['name']!,
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: item['name'] == dropdownValue
+                                              ? Colors.white
+                                              : null,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
                           ),
                         ),
-                    ],
+                      );
+                    }).toList(),
                   ),
                 ),
               ),
