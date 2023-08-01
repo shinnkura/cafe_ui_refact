@@ -6,8 +6,12 @@ class OrderConfirmationText extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Text(
-      'ご注文を承りました',
-      style: TextStyle(fontSize: 20, color: Colors.brown[700]),
+      'ご注文を承りました。\n到着まで、今しばらくお待ちください。',
+      style: TextStyle(
+        fontSize: 14,
+        color: Colors.white,
+        textBaseline: TextBaseline.alphabetic,
+      ),
     );
   }
 }
