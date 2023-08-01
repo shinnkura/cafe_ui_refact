@@ -8,7 +8,7 @@ import 'firebase_options.dart';
 
 import 'constants.dart';
 import 'screens/home/home_screen.dart';
-import 'package:device_preview/device_preview.dart';
+// import 'package:device_preview/device_preview.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,10 +17,11 @@ void main() async {
   );
 
   runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => MyApp(),
-    ),
+    // DevicePreview(
+    // enabled: !kReleaseMode,
+    // builder: (context) => MyApp(),
+    // ),
+    MyApp(),
   );
 }
 
@@ -30,8 +31,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      locale: DevicePreview.locale(context),
-      builder: DevicePreview.appBuilder,
+      // locale: DevicePreview.locale(context),
+      // builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       title: 'Coffee Order',
       theme: _buildThemeData(context),
