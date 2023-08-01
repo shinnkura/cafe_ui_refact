@@ -8,10 +8,10 @@ class GreetingText extends StatelessWidget {
     return Column(
       children: [
         Text(
-          'お疲れ様です！',
+          'いつも\nお疲れ様です！',
+          textAlign: TextAlign.center,
           style: TextStyle(
             fontSize: 24,
-            // fontWeight: FontWeight.bold,
             color: Colors.white,
           ),
         ),

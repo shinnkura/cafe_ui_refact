@@ -31,7 +31,6 @@ class HomeScreen extends StatelessWidget {
           Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
-              // crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
                 const GreetingText(),
                 const SizedBox(height: 20),
