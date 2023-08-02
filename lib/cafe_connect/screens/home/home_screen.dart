@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../order_lists/order_list.dart';
 import 'components/greeting_text.dart';
 import 'components/order_button.dart';
 
@@ -36,6 +37,43 @@ class HomeScreen extends StatelessWidget {
                 const SizedBox(height: 20),
                 const OrderButton(),
                 const SizedBox(height: 180),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const OrderListPage(
+                            key: Key('order'),
+                          ),
+                        ),
+                      );
+                    },
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all<Color>(
+                        Colors.brown,
+                      ),
+                      padding: MaterialStateProperty.all<EdgeInsets>(
+                        const EdgeInsets.symmetric(
+                            horizontal: 20.0, vertical: 15.0),
+                      ),
+                      shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                      ),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 30.0, vertical: 8.0),
+                      child: const Text(
+                        '注文リストを見る',
+                        style: TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             ),
           ),
