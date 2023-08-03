@@ -213,8 +213,8 @@ class _OrderPageState extends State<OrderPage> {
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 padding: EdgeInsets.symmetric(
-                                  horizontal: 30, // Increase horizontal padding
-                                  vertical: 15, // Increase vertical padding
+                                  horizontal: 30,
+                                  vertical: 15,
                                 ),
                               ),
                             ),
@@ -247,9 +247,9 @@ class _OrderPageState extends State<OrderPage> {
                                   borderRadius: BorderRadius.circular(20),
                                 ),
                                 padding: EdgeInsets.symmetric(
-                                    horizontal:
-                                        30, // Increase horizontal padding
-                                    vertical: 15), // Increase vertical padding
+                                  horizontal: 30,
+                                  vertical: 15,
+                                ),
                               ),
                             ),
                           ),
